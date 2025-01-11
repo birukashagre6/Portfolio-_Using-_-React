@@ -1,3 +1,11 @@
-export default function App() {
-  return <h>Starting my portfolio</h>;
+import Navbar from "./components/Navbar";
+
+function App() {
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 }
+
+export default App;
