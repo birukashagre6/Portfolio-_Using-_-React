@@ -8,7 +8,7 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
 
   return (
-    <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 relative">
+    <div className=" w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 relative">
       <div className="absolute left-4">
         <h1>BIRUK A.</h1>
       </div>
