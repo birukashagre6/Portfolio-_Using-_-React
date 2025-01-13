@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import { useTheme } from "../Context/ThemeContext";
-import myPicture from "../assets/biruk.JPG"; // Import your image here
+import myPicture from "../assets/biruk.JPG";
+import cvFile from "../assets/CV.pdf";
 
 const Home = () => {
   const { darkMode } = useTheme();
@@ -86,7 +87,7 @@ const Home = () => {
                   } transition-all duration-300 ease-out group-hover:w-full`}
                 ></span>
                 <span className="relative z-10">
-                  <a href="https://drive" target="_blank" rel="noreferrer">
+                  <a href={cvFile} download="Biruk_Ashagre_CV.pdf">
                     Download CV
                   </a>
                 </span>
