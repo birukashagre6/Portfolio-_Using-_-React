@@ -8,14 +8,26 @@ import Bootstrap from "../assets/bootstrap.png";
 import GIT from "../assets/git.png";
 import TailwindCss from "../assets/tailwind.png";
 import NPM from "../assets/node.png";
+import { useTheme } from "../Context/ThemeContext";
 
 const Skills = () => {
+  const { darkMode } = useTheme();
+
   return (
-    <div name="skills" className="w-full h-screen bg-[#0a192f] text-gray-300">
+    <div
+      name="skills"
+      className={`w-full h-screen ${
+        darkMode ? "bg-[#0a192f] text-gray-300" : "bg-gray-100 text-gray-800"
+      }`}
+    >
       {/* Container */}
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div>
-          <p className="text-4xl font-bold inline border-b-4 border-cyan-500">
+          <p
+            className={`text-4xl font-bold inline border-b-4 ${
+              darkMode ? "border-cyan-500" : "border-blue-500"
+            }`}
+          >
             Skills
           </p>
           <p className="py-4">
@@ -24,38 +36,30 @@ const Skills = () => {
         </div>
 
         <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8">
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 ">
-            <img className="w-20 mx-auto" src={HTML} alt="HTML icon" />
-            <p className="my-4">HTML</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 ">
-            <img className="w-20 mx-auto" src={CSS} alt="HTML icon" />
-            <p className="my-4">CSS</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 ">
-            <img className="w-20 mx-auto" src={JAVASCRIPT} alt="HTML icon" />
-            <p className="my-4">JavaScript</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 ">
-            <img className="w-20 mx-auto" src={ReactImg} alt="HTML icon" />
-            <p className="my-4">React</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 ">
-            <img className="w-20 mx-auto" src={Bootstrap} alt="HTML icon" />
-            <p className="my-4">Bootstrap</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 ">
-            <img className="w-20 mx-auto" src={TailwindCss} alt="HTML icon" />
-            <p className="my-4">TailWind CSS</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 ">
-            <img className="w-20 mx-auto" src={NPM} alt="HTML icon" />
-            <p className="my-4">NODE</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500 ">
-            <img className="w-20 mx-auto" src={GIT} alt="HTML icon" />
-            <p className="my-4">Git</p>
-          </div>
+          {[
+            { img: HTML, name: "HTML" },
+            { img: CSS, name: "CSS" },
+            { img: JAVASCRIPT, name: "JavaScript" },
+            { img: ReactImg, name: "React" },
+            { img: Bootstrap, name: "Bootstrap" },
+            { img: TailwindCss, name: "Tailwind CSS" },
+            { img: NPM, name: "Node" },
+            { img: GIT, name: "Git" },
+          ].map((skill, index) => (
+            <div
+              key={index}
+              className={`shadow-md ${
+                darkMode ? "shadow-[#040c16]" : "shadow-gray-400"
+              } hover:scale-110 duration-500`}
+            >
+              <img
+                className="w-20 mx-auto"
+                src={skill.img}
+                alt={`${skill.name} icon`}
+              />
+              <p className="my-4">{skill.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
